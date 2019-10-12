@@ -6,6 +6,8 @@ import { useState } from "react";
 export default defaultValue => {
   const [value, setValue] = useState(defaultValue);
 
+  
+
   // 사용자가 코멘트를 쳐서 input 박스 안의 내용이 바뀔 때 마다 value (input value)를 변환해줍니다.
   const onChange = e => {
     const {

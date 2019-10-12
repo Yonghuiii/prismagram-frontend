@@ -8,6 +8,8 @@ import Search from "../Routes/Search";
 import Profile from "../Routes/Profile";
 import Notifications from "../Routes/Notifications"
 import HospitalProfile from "../Routes/HospitalProfile";
+import Room from "../Routes/Room";
+
 
 // 일종의 라우터입니다.
 // './explore'은 explore란 Component로, path "/" 는 Feed 란 component로 가는 식이죠
@@ -17,7 +19,9 @@ import HospitalProfile from "../Routes/HospitalProfile";
 // 프로필은 /username을 입력해서 접속하게 되는데, Profile로 향하는 Route를 상위에 배치할경우 explore나 search에 접근하려 할 때 해당 컴포넌트가 아닌 search/explore란 유저를 찾게 됩니다.
 
 // Switch: 딱 하나의 Route만 렌더링할 수 있게 도와줍니다.
+
 const LoggedInRoutes = () => (
+
   <Switch>
     <Route exact path="/" component={Feed} />
     <Route path="/explore" component={Explore} />
@@ -25,6 +29,7 @@ const LoggedInRoutes = () => (
     <Route path="/notifications" component={Notifications} />
     <Route path="/user/:username" component={Profile} />
     <Route path="/hospital/:name" component={HospitalProfile}/>
+    <Route path="/message" component={Room}/>
     <Redirect from="*" to="/" />
   </Switch>
 );
@@ -41,6 +46,9 @@ const LoggedOutRoutes = () => (
 // 로그인시 해당 url에 따른 창이 나타납니다.
 const AppRouter = ({ isLoggedIn }) =>
   isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
+
+  
+ 
 
 // AppRouter에 필요한 propTypes을 정의. isLoggedIn은 꼭 필요합니다.
 AppRouter.propTypes = {

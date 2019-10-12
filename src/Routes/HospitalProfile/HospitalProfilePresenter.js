@@ -15,7 +15,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 const Wrapper = styled.div`
   min-height: 100vh;
 `;
-
+ 
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -388,6 +388,7 @@ export default ({ loading, data }) => {
             </STabPanel>
           </Content>
         </STabs>
+       
       </Wrapper>
     );
   }

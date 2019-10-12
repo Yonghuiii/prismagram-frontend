@@ -1,4 +1,12 @@
-import React from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'react-notifications/lib/notifications.css';
+import './App.css';
+
+import Login from './Chat/Login';
+import Chat from './Chat/Chat';
+
+
+import React, {useState} from 'react';
 
 // GraphQL query를 사용하기 위한 아폴로를 떙겨오구요
 import { gql } from "apollo-boost";
@@ -40,26 +48,33 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
+
 export default () => {
   const {
     data: { isLoggedIn }
   } = useQuery(QUERY);
 
+  
   return (
-    <ThemeProvider theme={Theme}>
-      <>
-        <GlobalStyles />
-        <Router>
-          <>
-            {isLoggedIn && <Header />}
-            <Wrapper>
-              <Routes isLoggedIn={isLoggedIn}/>
-              <Footer />
-            </Wrapper>
-          </>
-        </Router>
-        <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
-      </>
-    </ThemeProvider>
+    
+    
+      <ThemeProvider theme={Theme}>
+        <>
+          <GlobalStyles />
+          <Router>
+            <>
+              {isLoggedIn && <Header />}
+              <Wrapper>
+                <Routes isLoggedIn={isLoggedIn}/>
+                <Footer />
+              </Wrapper>
+            </>
+          </Router>
+          <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
+        </>
+      </ThemeProvider>
+
+    
+ 
   );
 };
